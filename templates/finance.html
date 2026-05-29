@@ -1,0 +1,22 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <h1>Financeiro</h1>
+    
+    <div class="cards">
+        <div class="card">
+            <h3>Receita</h3>
+            <p>R$ {{ revenue }}</p>
+        </div>
+        
+        <div class="card">
+            <h3>Despesas</h3>
+            <p>R$ {{ expenses }}</p>
+        </div>
+        
+        <div class="card">
+            <h3>Lucro</h3>
+            <p>R$ {{ profit }}</p>
+        </div>
+    </div>
+{% endblock %}

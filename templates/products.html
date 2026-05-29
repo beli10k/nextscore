@@ -1,0 +1,31 @@
+from app import app, db
+from flask import render_template, request, redirect
+from models.models import Product
+from flask_login import login_required
+
+@app.route('/products')
+@login_required
+def products():
+
+    products = Product.query.all()
+
+    return render_template(
+        'products.html',
+        products=products
+    )
+
+@app.route('/add_product', methods=['POST'])
+@login_required
+def add_product():
+
+    product = Product(
+        name=request.form['name'],
+        price=request.form['price'],
+        stock=request.form['stock'],
+        minimum_stock=request.form['minimum_stock']
+    )
+
+    db.session.add(product)
+    db.session.commit()
+
+    return redirect('/products')

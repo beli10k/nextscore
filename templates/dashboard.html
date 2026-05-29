@@ -1,0 +1,23 @@
+from app import app
+from flask import render_template
+from flask_login import login_required
+
+@app.route('/dashboard')
+@login_required
+def dashboard():
+
+    total_sales = 1200
+    profit = 700
+    total_clients = 15
+
+    labels = ['Jan', 'Fev', 'Mar']
+    values = [100, 300, 500]
+
+    return render_template(
+        'dashboard.html',
+        total_sales=total_sales,
+        profit=profit,
+        total_clients=total_clients,
+        labels=labels,
+        values=values
+    )

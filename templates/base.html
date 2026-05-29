@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NexStore</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+    <div class="sidebar">
+        <h2>NexStore</h2>
+        <a href="/dashboard">Dashboard</a>
+        <a href="/products">Produtos</a>
+        <a href="/clients">Clientes</a>
+        <a href="/sales">Vendas</a>
+        <a href="/finance">Financeiro</a>
+        <a href="/reports">Relatórios</a>
+        <a href="/logout">Sair</a>
+    </div>
+
+    <div class="main">
+        {% block content %}
+        {% endblock %}
+    </div>
+
+    <script src="{{ url_for('static', filename='js/script.js') }}"></script>
+</body>
+</html>

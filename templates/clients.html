@@ -1,0 +1,33 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <h1>Clientes</h1>
+    
+    <form method="POST" action="/add_client" class="form-grid">
+        <input type="text" name="name" placeholder="Nome" required>
+        <input type="text" name="phone" placeholder="Telefone">
+        <input type="email" name="email" placeholder="Email">
+        <button type="submit">Cadastrar</button>
+    </form>
+    
+    <table>
+        <thead>
+            <tr>
+                <th>Nome</th>
+                <th>Telefone</th>
+                <th>Email</th>
+                <th>Pontos</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for client in clients %}
+                <tr>
+                    <td>{{ client.name }}</td>
+                    <td>{{ client.phone }}</td>
+                    <td>{{ client.email }}</td>
+                    <td>{{ client.points }}</td>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+{% endblock %}
